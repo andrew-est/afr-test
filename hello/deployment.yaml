@@ -10,7 +10,7 @@ spec:
       app: wordpress
   strategy:
     type: Recreate
-  replicas: 5 
+  replicas: 15 
   template:
     metadata:
       labels:
