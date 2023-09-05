@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                echo "uypdate"
+                echo "uypdate 1"
                 sh 'mvn --version'
             }
         }
