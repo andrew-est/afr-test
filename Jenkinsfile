@@ -7,20 +7,19 @@ pipeline {
       }
       steps {
         echo "Checkout ${ghprbAuthorRepoGitUrl} branch ${ghprbActualCommit}"
-        ci_git_branch="${ghprbActualCommit}"
-        ci_git_url = "${ghprbAuthorRepoGitUrl}"
+        //ci_git_branch="${ghprbActualCommit}"
+        // ci_git_url = "${ghprbAuthorRepoGitUrl}"
         cat Jenkinsfile
-
         /* Checkout CI Repo */
         checkout([$class: 'GitSCM',
-                 branches: [[name: ci_git_branch]],
+                 branches: [[name: ${ghprbActualCommit}]],
                  doGenerateSubmoduleConfigurations: false,
                  extensions: [[$class: 'WipeWorkspace'],
                  [$class: 'CleanCheckout'],
                  [$class: 'CleanBeforeCheckout']],
                  submoduleCfg: [],
                  userRemoteConfigs: [[credentialsId: 'afrtestuserpassword',
-                 url: ci_git_url]]])
+                 url: ${ghprbAuthorRepoGitUrl}]]])
        
       }
     }
