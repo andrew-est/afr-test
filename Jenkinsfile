@@ -8,16 +8,16 @@ script {
 pipeline {
     agent any
     stages {
-          stage('SCM') {
+        stage('SCM') {
             options {
                 timeout(time: 5, unit: 'MINUTES')
             }
             steps {
-                echo "Checkout ${ghprbAuthorRepoGitUrl} branch ${ghprbActualCommit} "
+                // echo "Checkout ${ghprbAuthorRepoGitUrl} branch ${ghprbActualCommit} "
                 //ci_git_branch="${ghprbActualCommit}"
                 // ci_git_url = "${ghprbAuthorRepoGitUrl}"
                 /* Checkout CI Repo */
-                sh cat ./Jenkinsfile
+                // sh cat ./Jenkinsfile
 
                 checkout([$class: 'GitSCM',
                         branches: [[name: ci_git_branch]],
@@ -28,15 +28,16 @@ pipeline {
                         submoduleCfg: [],
                         userRemoteConfigs: [[credentialsId: 'afrtestuserpassword',
                         url: ci_git_url]]])
-                        }
+                        
                 }
+            }
     
     
         stage('build') {
             steps {
                 echo "uypdate 1"
                 echo 'mvn --version'
-                sh cat ./Jenkinsfile
+                //sh cat ./Jenkinsfile
             }
         }
     }
