@@ -6,7 +6,7 @@ pipeline {
         timeout(time: 5, unit: 'MINUTES')
       }
       steps {
-        echo "Checkout ${ghprbAuthorRepoGitUrl} branch ${ghprbActualCommit} "
+        echo "Checkout ${ghprbAuthorRepoGitUrl} branch ${ghprbActualCommit}"
         //ci_git_branch="${ghprbActualCommit}"
         // ci_git_url = "${ghprbAuthorRepoGitUrl}"
         /* Checkout CI Repo */
