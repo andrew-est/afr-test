@@ -6,11 +6,12 @@ pipeline {
         timeout(time: 5, unit: 'MINUTES')
       }
       steps {
-        echo "Checkout ${ghprbAuthorRepoGitUrl} branch ${ghprbActualCommit}"
+        echo "Checkout ${ghprbAuthorRepoGitUrl} branch ${ghprbActualCommit} "
         //ci_git_branch="${ghprbActualCommit}"
         // ci_git_url = "${ghprbAuthorRepoGitUrl}"
-        cat Jenkinsfile
         /* Checkout CI Repo */
+        sh cat ./Jenkinsfile
+
         checkout([$class: 'GitSCM',
                  branches: [[name: ${ghprbActualCommit}]],
                  doGenerateSubmoduleConfigurations: false,
@@ -27,7 +28,7 @@ pipeline {
             steps {
                 echo "uypdate 1"
                 echo 'mvn --version'
-                cat Jenkinsfile
+                sh cat ./Jenkinsfile
             }
         }
     }
