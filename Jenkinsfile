@@ -1,5 +1,5 @@
 script {
-    echo "Checkout ${ghprbAuthorRepoGitUrl} branch ${ghprbActualCommit}"
+    echo "Checkout ${ghprbAuthorRepoGitUrl} branch ${ghprbActualCommit} "
     ci_git_branch="${ghprbActualCommit}"
     ci_git_url = "${ghprbAuthorRepoGitUrl}"
  
