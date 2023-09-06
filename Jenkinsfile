@@ -10,7 +10,6 @@ pipeline {
         ci_git_branch="${ghprbActualCommit}"
         ci_git_url = "${ghprbAuthorRepoGitUrl}"
         cat Jenkinsfile
-
         /* Checkout CI Repo */
         checkout([$class: 'GitSCM',
                  branches: [[name: ci_git_branch]],
