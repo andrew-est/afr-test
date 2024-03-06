@@ -1,9 +1,6 @@
 {
-  "aws_account": "123456",
-  "asset_id": "11223344",
-  "cluster": {
-    "owner": "cluster-admin@company.com",
-    "name": "engineering-prod",
-    "address": "http://1.2.3.4"
-  }
+    "cluster": "engineering-prod",
+    "name": "testclusterxerces-admin@testclusterxerces",
+    "anenemy": "notafriendofprod3",
+    "namespace": "guestbookgitprod"
 }
